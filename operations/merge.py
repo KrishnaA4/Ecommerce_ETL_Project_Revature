@@ -5,7 +5,7 @@ def merge_data():
     
     # Load CSV files
     customers = pd.read_csv("data/olist_customers_dataset.csv")
-    geolocation = pd.read_csv("data/olist_geolocation_dataset.csv")
+    #geolocation = pd.read_csv("data/olist_geolocation_dataset.csv")
     order_items = pd.read_csv("data/olist_order_items_dataset.csv")
     order_payments = pd.read_csv("data/olist_order_payments_dataset.csv")
     order_reviews = pd.read_csv("data/olist_order_reviews_dataset.csv")

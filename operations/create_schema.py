@@ -4,7 +4,8 @@ import pymysql
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "Krishna@3002"
+    "password": "Krishna@3002",
+    "database": "ecommerce_db"
 }
 
 def connect_db():

@@ -11,6 +11,9 @@ def main():
     
     print("Merging data...")
     merged_df = merge_data()  # Merges data
+
+    print(merged_df[['product_category_name', 'product_category_name_english']].drop_duplicates().head(20))
+
     
     print("Cleaning data...")
     cleaned_df = clean(merged_df)  # Cleans data
@@ -25,6 +28,7 @@ def main():
     load_data(final_df)  # Inserts data into the database
     
     print("✅ ETL pipeline completed successfully!")
+    print(final_df.head())
 
 if __name__ == "__main__":
     main()

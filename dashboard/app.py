@@ -27,14 +27,16 @@ def fetch_data(query):
     return df
 
 # Streamlit App Layout
-st.set_page_config(page_title="Sales Analytics Dashboard", layout="wide")
-st.sidebar.title("📊 Sales Analytics Dashboard")
+st.set_page_config(page_title="Retail Data Analytics Dashboard", layout="wide")
+st.sidebar.title("Retail Data Analytics Dashboard")
 
 # Sidebar Navigation
 option = st.sidebar.radio("Select Analysis:", [
     "Data Mart Analysis",
     "Aggregation Analysis",
-    "KPI Analysis"
+    "KPI Analysis",
+    "View Schema",
+    "Project Summary"
 ])
 
 if option == "Data Mart Analysis":
@@ -107,5 +109,40 @@ elif option == "KPI Analysis":
         fig = px.pie(df, names='year', values='total_orders', title='Number of Orders per Year')
         st.plotly_chart(fig, use_container_width=True)
 
+elif option == "View Schema":
+    st.title("Star Schema of Sales Project")
+    st.image("dashboard/star_schema.png", use_container_width=True)
+
+
+elif option == "Project Summary":
+    st.title("Project Summary Report")
+
+    st.markdown("""
+    ## **1. Project Overview**  
+    This project focuses on building a **Retail Data Analytics Dashboard** to analyze and visualize e-commerce retail data.  
+    It integrates **MySQL** for data storage and **Streamlit** for interactive reporting. The dashboard provides key insights  
+    on **sales performance, product trends, and business KPIs** using a **star schema-based data warehouse**.
+
+    ## **2. Data Processing & Storage**  
+    - **Data Cleaning & Transformation:** Missing values handled, optimized data types.  
+    - **Star Schema Implementation:** Fact & Dimension tables for efficient querying.  
+    - **Data Insertion into MySQL:** Used INSERT IGNORE to prevent duplicate records.  
+
+    ## **3. Dashboard Features & Analysis**  
+    - **Data Mart Analysis:** Sales performance, product category trends.  
+    - **Aggregation Analysis:** Revenue trends, customer & category-wise sales.  
+    - **KPI Analysis:** Payment methods, best-selling categories, sales by state.  
+    - **Schema View:** Visual representation of the data model.  
+
+    ## **4. Technologies Used**  
+    - **Python & Streamlit** for dashboard development.  
+    - **MySQL & pymysql** for database management.  
+    - **Pandas & Plotly** for data processing & visualization.  
+
+    ## **5. Key Outcomes**  
+    - Fully interactive **Retail Data analytics dashboard**.  
+    - **Optimized database structure** for fast querying.  
+    - **Data-driven insights** into sales trends & business KPIs.  
+    """)
+
 st.sidebar.markdown("---")
-st.sidebar.info("Developed for Sales Data Insights 📊")
